@@ -2,12 +2,13 @@
 
 namespace app\controllers;
 
-use Yii;
-use app\models\Product;
 use app\models\Category;
+use app\models\Product;
+use Yii;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\filters\AccessControl;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 class ProductController extends Controller
 {
@@ -57,5 +58,23 @@ class ProductController extends Controller
             'categoryId' => $categoryId,
             'search' => $search,
         ]);
+    }
+
+    public function actionView($id)
+    {
+        $model = $this->findModel($id);
+
+        return $this->render('view', [
+            'model' => $model,
+        ]);
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = Product::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('Produk tidak ditemukan.');
     }
 }

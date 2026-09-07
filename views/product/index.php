@@ -33,19 +33,28 @@ $this->title = 'Produk';
 <div class="row">
 <?php foreach ($dataProvider->getModels() as $product): ?>
     <div class="col-md-3 mb-4">
-        <div class="card h-100">
-            <div class="card-body">
-                <h5 class="card-title"><?= Html::encode($product->name) ?></h5>
-                <p class="card-text">
-                    Rp <?= number_format($product->price, 0, ',', '.') ?><br>
-                    Stok: <?= $product->stock ?>
-                </p>
-                <?= Html::a('Tambah ke Keranjang',
-                    Url::to(['cart/add', 'id' => $product->id]),
-                    ['class' => 'btn btn-sm btn-success', 'data-method' => 'post']
-                ) ?>
+        <a href="<?= Url::to(['product/view', 'id' => $product->id]) ?>" class="text-decoration-none text-dark">
+            <div class="card h-100">
+                <?php if (!empty($product->image)): ?>
+                    <img src="<?= Yii::getAlias('@web/uploads/products/' . $product->image) ?>"
+                         class="card-img-top"
+                         alt="<?= Html::encode($product->name) ?>"
+                         style="height: 200px; object-fit: cover;">
+                <?php else: ?>
+                    <div class="d-flex align-items-center justify-content-center bg-light"
+                         style="height: 200px;">
+                        <span class="text-muted">Tidak ada gambar</span>
+                    </div>
+                <?php endif; ?>
+                <div class="card-body">
+                    <h5 class="card-title"><?= Html::encode($product->name) ?></h5>
+                    <p class="card-text">
+                        Rp <?= number_format($product->price, 0, ',', '.') ?><br>
+                        Stok: <?= $product->stock ?>
+                    </p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 <?php endforeach; ?>
 </div>

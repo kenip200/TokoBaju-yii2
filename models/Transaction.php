@@ -35,7 +35,7 @@ class Transaction extends \yii\db\ActiveRecord
         return [
             [['total'], 'default', 'value' => 0.00],
             [['user_name', 'code'], 'required'],
-            [['total'], 'number'],
+            [['total', 'paid_amount', 'change_amount'], 'number'],
             [['created_at'], 'safe'],
             [['user_name'], 'string', 'max' => 100],
             [['code'], 'string', 'max' => 50],

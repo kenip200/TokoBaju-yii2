@@ -10,20 +10,9 @@ use yii\helpers\Html;
 
 $isGuest = Yii::$app->user->isGuest;
 $isAdmin = !$isGuest && Yii::$app->user->identity->role === 'admin';
+$isCustomer = !$isGuest && !$isAdmin;
 
 $items = [
-    [
-        'label' => 'Home',
-        'url' => ['/site/index'],
-    ],
-    [
-        'label' => 'About',
-        'url' => ['/site/about'],
-    ],
-    [
-        'label' => 'Contact',
-        'url' => ['/site/contact'],
-    ],
     [
         'label' => 'Kategori',
         'url' => ['/admin/category/index'],
@@ -35,9 +24,34 @@ $items = [
         'visible' => $isAdmin,
     ],
     [
+        'label' => 'Riwayat Transaksi',
+        'url' => ['/admin/transaction/index'],
+        'visible' => $isAdmin,
+    ],
+    [
+        'label' => 'Produk',
+        'url' => ['/product/index'],
+        'visible' => $isCustomer,
+    ],
+    [
+        'label' => 'Keranjang',
+        'url' => ['/cart/index'],
+        'visible' => $isCustomer,
+    ],
+    [
+        'label' => 'Riwayat Transaksi',
+        'url' => ['/transaction/history'],
+        'visible' => $isCustomer,
+    ],
+    [
         'label' => 'Login',
         'url' => ['/site/login'],
         'visible' => $isGuest,
+    ],
+    [
+        'label' => 'Profile',
+        'url' => ['/site/profile'],
+        'visible' => !$isGuest,
     ],
     [
         'label' => 'Logout (' . Html::encode(Yii::$app->user->identity?->username ?? '') . ')',

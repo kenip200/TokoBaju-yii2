@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "product".
@@ -22,6 +23,8 @@ use yii\db\Expression;
  */
 class Product extends \yii\db\ActiveRecord
 {
+
+    public $imageFile;
 
 
     /**
@@ -53,11 +56,27 @@ class Product extends \yii\db\ActiveRecord
             [['stock'], 'default', 'value' => 0],
             [['category_id', 'name'], 'required'],
             [['category_id', 'stock'], 'integer'],
+            [['description'], 'string'],
+            [['image'], 'string', 'max' => 255],
             [['price'], 'number'],
             [['created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 150],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg webp', 'maxSize' => 2 * 1024 * 1024],
         ];
+    }
+
+    public function upload()
+    {
+        if ($this->imageFile) {
+            $fileName = uniqid() . '.' . $this->imageFile->extension;
+            if ($this->imageFile->saveAs('uploads/products/' . $fileName)) {
+                $this->image = $fileName;
+                return true;
+            }
+            return false;
+        }
+        return true; // tidak ada file baru, tetap lanjut (misal saat update tanpa ganti gambar)
     }
 
     /**

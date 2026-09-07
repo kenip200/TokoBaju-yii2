@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
-use Yii;
-use app\models\ContactForm;
 use app\models\LoginForm;
+use app\models\ProfileForm;
+use Yii;
+use yii\base\Security;
 use yii\captcha\CaptchaAction;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\base\Security;
 use yii\mail\MailerInterface;
 use yii\web\Controller;
 use yii\web\ErrorAction;
@@ -34,12 +34,13 @@ class SiteController extends Controller
     public function behaviors(): array
     {
         return [
+            
             'access' => [
                 'class' => AccessControl::class,
                 'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'profile'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -76,9 +77,17 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex(): string
+    public function actionIndex()
     {
-        return $this->render('index');
+       if (Yii::$app->user->isGuest) {
+            return $this->redirect(['site/login']);
+        }
+
+        if (Yii::$app->user->identity->role === 'admin') {
+            return $this->redirect(['admin/product/index']);
+        }
+
+        return $this->redirect(['product/index']);
     }
 
     /**
@@ -130,41 +139,44 @@ class SiteController extends Controller
         return $this->render('signup', ['model' => $model]);
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact(): Response|string
+    public function actionProfile()
     {
-        $model = new ContactForm();
-
-        $contact = $model->load($this->request->post()) && $model->contact(
-            $this->mailer,
-            Yii::$app->params['adminEmail'],
-            Yii::$app->params['senderEmail'],
-            Yii::$app->params['senderName'],
-        );
-
-        if ($contact) {
-            Yii::$app->session->setFlash(
-                'success',
-                'Thank you for contacting us. We will respond to you as soon as possible.',
-            );
-
-            return $this->refresh();
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['site/login']);
         }
 
-        return $this->render('contact', ['model' => $model]);
+        /** @var \app\models\User $identity */
+        $identity = Yii::$app->user->identity;
+
+        $model = new ProfileForm();
+        $model->id = $identity->id;
+        $model->username = $identity->username;
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $identity->username = $model->username;
+
+            if (!empty($model->password)) {
+                $identity->setPassword($model->password);
+                // generateAuthKey() DIHAPUS supaya session/remember-me tidak invalid
+            }
+
+            if ($identity->save(false)) {
+                // pastikan Yii::$app->user tetap sinkron dengan identity yang baru disimpan
+                Yii::$app->user->setIdentity($identity);
+
+                Yii::$app->session->setFlash('success', 'Profile berhasil diperbarui.');
+                return $this->refresh();
+            } else {
+                Yii::$app->session->setFlash('error', 'Gagal menyimpan perubahan.');
+            }
+        }
+
+        $model->password = null;
+        $model->confirm_password = null;
+
+        return $this->render('profile', [
+            'model' => $model,
+        ]);
     }
 
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout(): string
-    {
-        return $this->render('about');
-    }
 }

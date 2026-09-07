@@ -27,12 +27,40 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'category_id',
+            [
+                'attribute' => 'category_id',
+                'value' => 'category.name',
+            ],
             'name',
-            'price',
+            [
+                'attribute' => 'description',
+                'value' => function ($model) {
+                    return $model->description
+                        ? Html::encode(mb_substr($model->description, 0, 50)) . (mb_strlen($model->description) > 50 ? '...' : '')
+                        : '-';
+                },
+                'format' => 'raw',
+            ],
+            [
+                'attribute' => 'price',
+                'value' => function ($model) {
+                    return 'Rp ' . number_format($model->price, 0, ',', '.');
+                },
+            ],
             'stock',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return $model->image
+                        ? Html::img(Yii::getAlias('@web/uploads/products/' . $model->image), ['style' => 'width:60px;height:60px;object-fit:cover'])
+                        : '(no image)';
+                },
+            ],
             //'created_at',
             //'updated_at',
+            //'description:ntext',
+            //'image',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Product $model, $key, $index, $column) {

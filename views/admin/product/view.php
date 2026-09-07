@@ -36,6 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'stock',
             'created_at',
             'updated_at',
+            'description:ntext',
+            'image',
         ],
     ]) ?>
 

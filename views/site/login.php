@@ -25,21 +25,14 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
             <div class="col-md-5 d-none d-md-flex login-brand-panel text-white">
                 <div class="d-flex flex-column justify-content-between p-4 p-lg-5 w-100">
                     <div>
-                        <?= Html::img(
-                            Yii::getAlias('@web/images/yii3_full_white_for_dark.svg'),
-                            [
-                                'alt' => 'Yii Framework',
-                                'class' => 'mb-4',
-                                'height' => 40,
-                            ],
-                        ) ?>
+                        <span class="fw-bold fs-3 mb-4 d-inline-block">TokoBaju</span>
                     </div>
                     <div>
                         <h2 class="fw-bold mb-3 login-brand-title">
                             Welcome<br>Back
                         </h2>
                         <p class="opacity-75 mb-0 login-brand-text">
-                            Log in to access your Yii2 application and manage your account.
+                            Login untuk mengakses aplikasi ini.
                         </p>
                     </div>
                 </div>
@@ -51,14 +44,7 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
                     <div class="text-center mb-4">
                         <!-- Mobile-only logo -->
                         <div class="d-md-none mb-3">
-                            <?= Html::img(
-                                Yii::getAlias('@web/images/yii3_full_black_for_light.svg'),
-                                [
-                                    'alt' => 'Yii Framework',
-                                    'class' => 'login-mobile-logo',
-                                    'height' => 36,
-                                ],
-                            ) ?>
+                            <span class="fw-bold fs-4 d-inline-block">TokoBaju</span>
                         </div>
                         <h1 class="h3 fw-bold mb-1"><?= Html::encode($this->title) ?></h1>
                         <p class="text-body-secondary small">Enter your credentials to continue</p>
