@@ -29,6 +29,16 @@ $items = [
         'visible' => $isAdmin,
     ],
     [
+        'label' => 'Kategori',
+        'url' => ['/admin/category/index'],
+        'visible' => $isAdmin,
+    ],
+    [
+        'label' => 'Home',
+        'url' => ['/site/index'],
+        'visible' => $isCustomer,
+    ],
+    [
         'label' => 'Produk',
         'url' => ['/product/index'],
         'visible' => $isCustomer,

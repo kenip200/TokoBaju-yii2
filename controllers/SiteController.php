@@ -16,6 +16,9 @@ use yii\web\Controller;
 use yii\web\ErrorAction;
 use yii\web\Response;
 
+use app\models\Product;
+use app\models\TransactionItem;
+
 class SiteController extends Controller
 {
     public function __construct(
@@ -79,15 +82,44 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-       if (Yii::$app->user->isGuest) {
+        // Guest tidak boleh akses beranda, lempar ke login
+        if (Yii::$app->user->isGuest) {
             return $this->redirect(['site/login']);
         }
 
+        // Admin juga tidak pakai beranda customer ini
         if (Yii::$app->user->identity->role === 'admin') {
             return $this->redirect(['admin/product/index']);
         }
 
-        return $this->redirect(['product/index']);
+        $username = Yii::$app->user->identity->username;
+
+        $topSale = Product::find()
+            ->select(['product.*', 'SUM(transaction_item.qty) AS total_sold'])
+            ->joinWith('transactionItems transaction_item', false)
+            ->groupBy('product.id')
+            ->orderBy(['total_sold' => SORT_DESC])
+            ->limit(5)
+            ->all();
+
+        $recentProductIds = TransactionItem::find()
+            ->select(['product_id', 'MAX(transaction.created_at) AS last_purchased'])
+            ->joinWith('transaction', false)
+            ->where(['transaction.user_name' => $username])
+            ->groupBy('product_id')
+            ->orderBy(['last_purchased' => SORT_DESC])
+            ->limit(5)
+            ->column();
+
+        $recentProducts = Product::find()
+            ->where(['id' => $recentProductIds])
+            ->all();
+
+        return $this->render('index', [
+            'username'       => $username,
+            'topSale'        => $topSale,
+            'recentProducts' => $recentProducts,
+        ]);
     }
 
     /**
