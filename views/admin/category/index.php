@@ -21,23 +21,26 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <div class="table-responsive">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'name',
-            'created_at',
-            'updated_at',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Category $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                'id',
+                'name',
+                'created_at',
+                'updated_at',
+                [
+                    'class' => ActionColumn::className(),
+                    'urlCreator' => function ($action, Category $model, $key, $index, $column) {
+                        return Url::toRoute([$action, 'id' => $model->id]);
+                     },
+                    'contentOptions' => ['style' => 'white-space:nowrap'],
+                ],
             ],
-        ],
-    ]); ?>
+        ]); ?>
+    </div>
 
 
 </div>

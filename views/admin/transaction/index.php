@@ -47,41 +47,43 @@ $this->title = 'Riwayat Transaksi (Admin)';
     </div>
 <?= Html::endForm() ?>
 
-<?= GridView::widget([
-    'dataProvider' => $dataProvider,
-    'columns' => [
-        'code',
-        'user_name',
-        [
-            'attribute' => 'created_at',
-            'format' => ['date', 'php:d-m-Y H:i'],
+<div class="table-responsive">
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            'code',
+            'user_name',
+            [
+                'attribute' => 'created_at',
+                'format' => ['date', 'php:d-m-Y H:i'],
+            ],
+            [
+                'attribute' => 'total',
+                'value' => function ($model) {
+                    return 'Rp ' . number_format($model->total, 0, ',', '.');
+                },
+            ],
+            [
+                'attribute' => 'paid_amount',
+                'label' => 'Dibayar',
+                'value' => function ($model) {
+                    return 'Rp ' . number_format($model->paid_amount, 0, ',', '.');
+                },
+            ],
+            [
+                'attribute' => 'change_amount',
+                'label' => 'Kembalian',
+                'value' => function ($model) {
+                    return 'Rp ' . number_format($model->change_amount, 0, ',', '.');
+                },
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}',
+                'urlCreator' => function ($action, $model) {
+                    return \yii\helpers\Url::to(['admin/transaction/view', 'id' => $model->id]);
+                },
+            ],
         ],
-        [
-            'attribute' => 'total',
-            'value' => function ($model) {
-                return 'Rp ' . number_format($model->total, 0, ',', '.');
-            },
-        ],
-        [
-            'attribute' => 'paid_amount',
-            'label' => 'Dibayar',
-            'value' => function ($model) {
-                return 'Rp ' . number_format($model->paid_amount, 0, ',', '.');
-            },
-        ],
-        [
-            'attribute' => 'change_amount',
-            'label' => 'Kembalian',
-            'value' => function ($model) {
-                return 'Rp ' . number_format($model->change_amount, 0, ',', '.');
-            },
-        ],
-        [
-            'class' => 'yii\grid\ActionColumn',
-            'template' => '{view}',
-            'urlCreator' => function ($action, $model) {
-                return \yii\helpers\Url::to(['admin/transaction/view', 'id' => $model->id]);
-            },
-        ],
-    ],
-]) ?>
+    ]) ?>
+</div>
