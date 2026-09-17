@@ -11,7 +11,15 @@ use yii\grid\GridView;
 
 $this->title = 'Riwayat Transaksi (Admin)';
 ?>
-<h1><?= Html::encode($this->title) ?></h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="mb-0"><?= Html::encode($this->title) ?></h1>
+
+    <?= Html::a(
+        '<i class="bi bi-file-earmark-pdf"></i> Download PDF',
+        array_merge(['admin/transaction/export-pdf'], Yii::$app->request->get()),
+        ['class' => 'btn btn-danger', 'target' => '_blank']
+    ) ?>
+</div>
 
 <?= Html::beginForm(['admin/transaction/index'], 'get', ['class' => 'mb-3']) ?>
     <div class="row g-2 align-items-end">
