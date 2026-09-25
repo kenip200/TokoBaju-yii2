@@ -14,6 +14,11 @@ $isCustomer = !$isGuest && !$isAdmin;
 
 $items = [
     [
+        'label' => 'Dashboard',
+        'url' => ['/admin/dashboard/index'],
+        'visible' => $isAdmin,
+    ],
+    [
         'label' => 'Kategori',
         'url' => ['/admin/category/index'],
         'visible' => $isAdmin,

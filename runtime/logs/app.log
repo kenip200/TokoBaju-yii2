@@ -4087,3 +4087,616 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1789630670.3788
     'REQUEST_TIME' => 1789630670
 ]
+2026-09-24 00:33:32 [::1][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\mysql\Schema.php(370): yii\db\Command->queryAll()
+#8 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\mysql\Schema.php(138): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Schema.php(757): yii\db\mysql\Schema->loadTableSchema('user')
+#10 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Schema.php(193): yii\db\Schema->getTableMetadata('{{%user}}', 'schema', false)
+#11 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\ActiveRecord.php(434): yii\db\Schema->getTableSchema('{{%user}}')
+#12 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\ActiveRecord.php(261): yii\db\ActiveRecord::getTableSchema()
+#13 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\ActiveRecord.php(233): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#14 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\ActiveRecord.php(190): yii\db\ActiveRecord::filterCondition(Array, Array)
+#15 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\BaseActiveRecord.php(109): yii\db\ActiveRecord::findByCondition(Array)
+#16 C:\laragon\www\TokoBaju\models\User.php(26): yii\db\BaseActiveRecord::findOne(Array)
+#17 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(602): app\models\User::findIdentity(1)
+#18 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(321): yii\web\User->getIdentityAndDurationFromCookie()
+#19 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(727): yii\web\User->loginByCookie()
+#20 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(200): yii\web\User->renewAuthStatus()
+#21 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(367): yii\web\User->getIdentity()
+#22 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Component.php(142): yii\web\User->getIsGuest()
+#23 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2-debug\src\panels\UserPanel.php(86): yii\base\Component->__get('isGuest')
+#24 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\BaseObject.php(109): yii\debug\panels\UserPanel->init()
+#25 [internal function]: yii\base\BaseObject->__construct(Array)
+#26 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\di\Container.php(426): ReflectionClass->newInstanceArgs(Array)
+#27 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\di\Container.php(174): yii\di\Container->build('yii\\debug\\panel...', Array, Array)
+#28 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\BaseYii.php(370): yii\di\Container->get('yii\\debug\\panel...', Array, Array)
+#29 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2-debug\src\Module.php(268): yii\BaseYii::createObject(Array)
+#30 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2-debug\src\Module.php(240): yii\debug\Module->initPanels()
+#31 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\BaseObject.php(109): yii\debug\Module->init()
+#32 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(160): yii\base\BaseObject->__construct(Array)
+#33 [internal function]: yii\base\Module->__construct('debug', Object(yii\web\Application), Array)
+#34 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\di\Container.php(418): ReflectionClass->newInstanceArgs(Array)
+#35 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\di\Container.php(174): yii\di\Container->build('yii\\debug\\Modul...', Array, Array)
+#36 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\BaseYii.php(370): yii\di\Container->get('yii\\debug\\Modul...', Array, Array)
+#37 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(441): yii\BaseYii::createObject(Array, Array)
+#38 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(312): yii\base\Module->getModule('debug')
+#39 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(71): yii\base\Application->bootstrap()
+#40 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(270): yii\web\Application->bootstrap()
+#41 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\BaseObject.php(109): yii\base\Application->init()
+#42 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(203): yii\base\BaseObject->__construct(Array)
+#43 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->__construct(Array)
+#44 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#4 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\mysql\Schema.php(370): yii\db\Command->queryAll()
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\mysql\Schema.php(138): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Schema.php(757): yii\db\mysql\Schema->loadTableSchema('user')
+#8 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Schema.php(193): yii\db\Schema->getTableMetadata('{{%user}}', 'schema', false)
+#9 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\ActiveRecord.php(434): yii\db\Schema->getTableSchema('{{%user}}')
+#10 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\ActiveRecord.php(261): yii\db\ActiveRecord::getTableSchema()
+#11 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\ActiveRecord.php(233): yii\db\ActiveRecord::filterValidColumnNames(Object(yii\db\Connection), Array)
+#12 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\ActiveRecord.php(190): yii\db\ActiveRecord::filterCondition(Array, Array)
+#13 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\BaseActiveRecord.php(109): yii\db\ActiveRecord::findByCondition(Array)
+#14 C:\laragon\www\TokoBaju\models\User.php(26): yii\db\BaseActiveRecord::findOne(Array)
+#15 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(602): app\models\User::findIdentity(1)
+#16 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(321): yii\web\User->getIdentityAndDurationFromCookie()
+#17 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(727): yii\web\User->loginByCookie()
+#18 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(200): yii\web\User->renewAuthStatus()
+#19 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\User.php(367): yii\web\User->getIdentity()
+#20 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Component.php(142): yii\web\User->getIsGuest()
+#21 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2-debug\src\panels\UserPanel.php(86): yii\base\Component->__get('isGuest')
+#22 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\BaseObject.php(109): yii\debug\panels\UserPanel->init()
+#23 [internal function]: yii\base\BaseObject->__construct(Array)
+#24 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\di\Container.php(426): ReflectionClass->newInstanceArgs(Array)
+#25 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\di\Container.php(174): yii\di\Container->build('yii\\debug\\panel...', Array, Array)
+#26 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\BaseYii.php(370): yii\di\Container->get('yii\\debug\\panel...', Array, Array)
+#27 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2-debug\src\Module.php(268): yii\BaseYii::createObject(Array)
+#28 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2-debug\src\Module.php(240): yii\debug\Module->initPanels()
+#29 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\BaseObject.php(109): yii\debug\Module->init()
+#30 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(160): yii\base\BaseObject->__construct(Array)
+#31 [internal function]: yii\base\Module->__construct('debug', Object(yii\web\Application), Array)
+#32 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\di\Container.php(418): ReflectionClass->newInstanceArgs(Array)
+#33 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\di\Container.php(174): yii\di\Container->build('yii\\debug\\Modul...', Array, Array)
+#34 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\BaseYii.php(370): yii\di\Container->get('yii\\debug\\Modul...', Array, Array)
+#35 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(441): yii\BaseYii::createObject(Array, Array)
+#36 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(312): yii\base\Module->getModule('debug')
+#37 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(71): yii\base\Application->bootstrap()
+#38 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(270): yii\web\Application->bootstrap()
+#39 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\BaseObject.php(109): yii\base\Application->init()
+#40 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(203): yii\base\BaseObject->__construct(Array)
+#41 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->__construct(Array)
+#42 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 2002
+    [2] => No connection could be made because the target machine actively refused it
+)
+
+2026-09-24 00:33:27 [::1][-][-][info][application] $_GET = [
+    'r' => 'admin/transaction/index'
+    'code' => ''
+    'user_name' => ''
+    'period' => 'all'
+    'month' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh\",2592000]\";}'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\TokoBaju\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '59187'
+    'SERVER_SOFTWARE' => 'PHP/8.3.31 (Development Server)'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=admin%2Ftransaction%2Findex&code=&user_name=&period=all&month='
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\TokoBaju\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=admin%2Ftransaction%2Findex&code=&user_name=&period=all&month='
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.138.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US'
+    'HTTP_COOKIE' => '_identity=ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%222D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh%22%2C2592000%5D%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1790210007.7068
+    'REQUEST_TIME' => 1790210007
+]
+2026-09-24 05:45:44 [::1][1][9c95uk3mo1d0gaqra1e895chn4][error][yii\db\Exception] PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ti.harga' in 'field list' in C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php:1320
+Stack trace:
+#0 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(1320): PDOStatement->execute()
+#1 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(1186): yii\db\Command->internalExecute('SELECT DATE(t.c...')
+#2 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Query.php(249): yii\db\Command->queryAll()
+#4 C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php(79): yii\db\Query->all()
+#5 [internal function]: app\controllers\admin\DashboardController->actionIndex()
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#7 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Controller.php(182): yii\base\InlineAction->runWithParams(Array)
+#8 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(547): yii\base\Controller->runAction('index', Array)
+#9 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(105): yii\base\Module->runAction('admin/dashboard...', Array)
+#10 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(382): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->run()
+#12 {main}
+
+Next yii\db\Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ti.harga' in 'field list'
+The SQL being executed was: SELECT DATE(t.created_at) AS `tanggal`, COUNT(DISTINCT t.id) AS `total_transaksi`, SUM(ti.qty * ti.harga) AS `total_penjualan` FROM `transaction` `t` INNER JOIN `transaction_item` `ti` ON ti.transaction_id = t.id WHERE `t`.`created_at` BETWEEN '2026-09-18 00:00:00' AND '2026-09-24 23:59:59' GROUP BY DATE(t.created_at) ORDER BY `tanggal` in C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Schema.php:677
+Stack trace:
+#0 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(1325): yii\db\Schema->convertException(Object(PDOException), 'SELECT DATE(t.c...')
+#1 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(1186): yii\db\Command->internalExecute('SELECT DATE(t.c...')
+#2 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#3 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\db\Query.php(249): yii\db\Command->queryAll()
+#4 C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php(79): yii\db\Query->all()
+#5 [internal function]: app\controllers\admin\DashboardController->actionIndex()
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#7 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Controller.php(182): yii\base\InlineAction->runWithParams(Array)
+#8 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(547): yii\base\Controller->runAction('index', Array)
+#9 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(105): yii\base\Module->runAction('admin/dashboard...', Array)
+#10 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(382): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'ti.harga' in 'field list'
+)
+
+2026-09-24 05:45:44 [::1][1][9c95uk3mo1d0gaqra1e895chn4][info][application] $_GET = [
+    'r' => 'admin/dashboard/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh\",2592000]\";}'
+    'PHPSESSID' => '9c95uk3mo1d0gaqra1e895chn4'
+    '_csrf' => 'fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => '2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\TokoBaju\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '56471'
+    'SERVER_SOFTWARE' => 'PHP/8.3.31 (Development Server)'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=admin%2Fdashboard%2Findex'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\TokoBaju\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=admin%2Fdashboard%2Findex'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.138.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/index.php?r=admin%2Fproduct%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US'
+    'HTTP_COOKIE' => '_identity=ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%222D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh%22%2C2592000%5D%22%3B%7D; PHPSESSID=9c95uk3mo1d0gaqra1e895chn4; _csrf=fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1790228744.5574
+    'REQUEST_TIME' => 1790228744
+]
+2026-09-24 05:48:03 [::1][1][9c95uk3mo1d0gaqra1e895chn4][error][yii\base\ErrorException:2] yii\base\ErrorException: Undefined variable $grandTotal in C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php:100
+Stack trace:
+#0 C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php(100): yii\base\ErrorHandler->handleError(2, 'Undefined varia...', 'C:\\laragon\\www\\...', 100)
+#1 [internal function]: app\controllers\admin\DashboardController->actionIndex()
+#2 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#3 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Controller.php(182): yii\base\InlineAction->runWithParams(Array)
+#4 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(547): yii\base\Controller->runAction('index', Array)
+#5 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(105): yii\base\Module->runAction('admin/dashboard...', Array)
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(382): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->run()
+#8 {main}
+2026-09-24 05:48:03 [::1][1][9c95uk3mo1d0gaqra1e895chn4][info][application] $_GET = [
+    'r' => 'admin/dashboard/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh\",2592000]\";}'
+    'PHPSESSID' => '9c95uk3mo1d0gaqra1e895chn4'
+    '_csrf' => 'fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => '2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\TokoBaju\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '61708'
+    'SERVER_SOFTWARE' => 'PHP/8.3.31 (Development Server)'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=admin%2Fdashboard%2Findex'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\TokoBaju\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=admin%2Fdashboard%2Findex'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.138.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/index.php?r=admin%2Fproduct%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US'
+    'HTTP_COOKIE' => '_identity=ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%222D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh%22%2C2592000%5D%22%3B%7D; PHPSESSID=9c95uk3mo1d0gaqra1e895chn4; _csrf=fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1790228883.2257
+    'REQUEST_TIME' => 1790228883
+]
+2026-09-24 05:48:05 [::1][1][9c95uk3mo1d0gaqra1e895chn4][error][yii\base\ErrorException:2] yii\base\ErrorException: Undefined variable $grandTotal in C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php:100
+Stack trace:
+#0 C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php(100): yii\base\ErrorHandler->handleError(2, 'Undefined varia...', 'C:\\laragon\\www\\...', 100)
+#1 [internal function]: app\controllers\admin\DashboardController->actionIndex()
+#2 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#3 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Controller.php(182): yii\base\InlineAction->runWithParams(Array)
+#4 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(547): yii\base\Controller->runAction('index', Array)
+#5 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(105): yii\base\Module->runAction('admin/dashboard...', Array)
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(382): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->run()
+#8 {main}
+2026-09-24 05:48:04 [::1][1][9c95uk3mo1d0gaqra1e895chn4][info][application] $_GET = [
+    'r' => 'admin/dashboard/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh\",2592000]\";}'
+    'PHPSESSID' => '9c95uk3mo1d0gaqra1e895chn4'
+    '_csrf' => 'fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => '2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\TokoBaju\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '65127'
+    'SERVER_SOFTWARE' => 'PHP/8.3.31 (Development Server)'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=admin%2Fdashboard%2Findex'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\TokoBaju\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=admin%2Fdashboard%2Findex'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.138.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/index.php?r=admin%2Fproduct%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US'
+    'HTTP_COOKIE' => '_identity=ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%222D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh%22%2C2592000%5D%22%3B%7D; PHPSESSID=9c95uk3mo1d0gaqra1e895chn4; _csrf=fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1790228884.8507
+    'REQUEST_TIME' => 1790228884
+]
+2026-09-24 05:48:05 [::1][1][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Undefined variable $grandTotal in C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php:100
+Stack trace:
+#0 C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php(100): yii\base\ErrorHandler->handleError(2, 'Undefined varia...', 'C:\\laragon\\www\\...', 100)
+#1 [internal function]: app\controllers\admin\DashboardController->actionIndex()
+#2 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#3 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Controller.php(182): yii\base\InlineAction->runWithParams(Array)
+#4 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(547): yii\base\Controller->runAction('index', Array)
+#5 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(105): yii\base\Module->runAction('admin/dashboard...', Array)
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(382): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->run()
+#8 {main}
+2026-09-24 05:48:05 [::1][1][-][info][application] $_GET = [
+    'r' => 'admin/dashboard/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh\",2592000]\";}'
+    'PHPSESSID' => '9c95uk3mo1d0gaqra1e895chn4'
+    '_csrf' => 'fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => '2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\TokoBaju\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '59406'
+    'SERVER_SOFTWARE' => 'PHP/8.3.31 (Development Server)'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=admin%2Fdashboard%2Findex'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\TokoBaju\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=admin%2Fdashboard%2Findex'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.138.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/index.php?r=admin%2Fproduct%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US'
+    'HTTP_COOKIE' => '_identity=ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%222D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh%22%2C2592000%5D%22%3B%7D; PHPSESSID=9c95uk3mo1d0gaqra1e895chn4; _csrf=fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1790228885.7026
+    'REQUEST_TIME' => 1790228885
+]
+2026-09-24 05:48:06 [::1][1][9c95uk3mo1d0gaqra1e895chn4][error][yii\base\ErrorException:2] yii\base\ErrorException: Undefined variable $grandTotal in C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php:100
+Stack trace:
+#0 C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php(100): yii\base\ErrorHandler->handleError(2, 'Undefined varia...', 'C:\\laragon\\www\\...', 100)
+#1 [internal function]: app\controllers\admin\DashboardController->actionIndex()
+#2 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#3 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Controller.php(182): yii\base\InlineAction->runWithParams(Array)
+#4 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(547): yii\base\Controller->runAction('index', Array)
+#5 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(105): yii\base\Module->runAction('admin/dashboard...', Array)
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(382): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->run()
+#8 {main}
+2026-09-24 05:48:05 [::1][1][9c95uk3mo1d0gaqra1e895chn4][info][application] $_GET = [
+    'r' => 'admin/dashboard/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh\",2592000]\";}'
+    'PHPSESSID' => '9c95uk3mo1d0gaqra1e895chn4'
+    '_csrf' => 'fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => '2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\TokoBaju\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '59703'
+    'SERVER_SOFTWARE' => 'PHP/8.3.31 (Development Server)'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=admin%2Fdashboard%2Findex'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\TokoBaju\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=admin%2Fdashboard%2Findex'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.138.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/index.php?r=admin%2Fproduct%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US'
+    'HTTP_COOKIE' => '_identity=ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%222D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh%22%2C2592000%5D%22%3B%7D; PHPSESSID=9c95uk3mo1d0gaqra1e895chn4; _csrf=fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1790228885.945
+    'REQUEST_TIME' => 1790228885
+]
+2026-09-24 05:52:11 [::1][1][9c95uk3mo1d0gaqra1e895chn4][error][yii\base\ViewNotFoundException] yii\base\ViewNotFoundException: The view file does not exist: C:\laragon\www\TokoBaju\views\admin/dashboard\index.php in C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\View.php:233
+Stack trace:
+#0 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\laragon\\www\\...', Array, Object(app\controllers\admin\DashboardController))
+#1 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Controller.php(423): yii\base\View->render('index', Array, Object(app\controllers\admin\DashboardController))
+#2 C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php(92): yii\base\Controller->render('index', Array)
+#3 [internal function]: app\controllers\admin\DashboardController->actionIndex()
+#4 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#5 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Controller.php(182): yii\base\InlineAction->runWithParams(Array)
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(547): yii\base\Controller->runAction('index', Array)
+#7 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(105): yii\base\Module->runAction('admin/dashboard...', Array)
+#8 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(382): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->run()
+#10 {main}
+2026-09-24 05:52:11 [::1][1][9c95uk3mo1d0gaqra1e895chn4][info][application] $_GET = [
+    'r' => 'admin/dashboard/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh\",2592000]\";}'
+    'PHPSESSID' => '9c95uk3mo1d0gaqra1e895chn4'
+    '_csrf' => 'fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => '2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\TokoBaju\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '51561'
+    'SERVER_SOFTWARE' => 'PHP/8.3.31 (Development Server)'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=admin%2Fdashboard%2Findex'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\TokoBaju\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=admin%2Fdashboard%2Findex'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.138.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/index.php?r=admin%2Fproduct%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US'
+    'HTTP_COOKIE' => '_identity=ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%222D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh%22%2C2592000%5D%22%3B%7D; PHPSESSID=9c95uk3mo1d0gaqra1e895chn4; _csrf=fff0fbb5f208d110a7dda9ef6f483b80fe520eca117ec2d068c11ba065806c07a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225EmgDrfz4c2w9zeWGpI_r1BnEiCpWhY_%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1790229131.6957
+    'REQUEST_TIME' => 1790229131
+]
+2026-09-25 01:42:30 [::1][1][7aq4tkbuho355sksgl4icnu3mt][error][yii\base\ErrorException:2] yii\base\ErrorException: Undefined variable $penjualanHarianRaw in C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php:73
+Stack trace:
+#0 C:\laragon\www\TokoBaju\controllers\admin\DashboardController.php(73): yii\base\ErrorHandler->handleError(2, 'Undefined varia...', 'C:\\laragon\\www\\...', 73)
+#1 [internal function]: app\controllers\admin\DashboardController->actionIndex()
+#2 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#3 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Controller.php(182): yii\base\InlineAction->runWithParams(Array)
+#4 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Module.php(547): yii\base\Controller->runAction('index', Array)
+#5 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\web\Application.php(105): yii\base\Module->runAction('admin/dashboard...', Array)
+#6 C:\laragon\www\TokoBaju\vendor\yiisoft\yii2\base\Application.php(382): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 C:\laragon\www\TokoBaju\web\index.php(14): yii\base\Application->run()
+#8 {main}
+2026-09-25 01:42:29 [::1][1][7aq4tkbuho355sksgl4icnu3mt][info][application] $_GET = [
+    'r' => 'admin/dashboard/index'
+    'tanggal_awal' => '2026-08-04'
+    'tanggal_akhir' => '2026-10-02'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7aq4tkbuho355sksgl4icnu3mt'
+    '_identity' => 'ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh\",2592000]\";}'
+    '_csrf' => '64abf7792e9de20bb3f439853112149a84b94b1146ab05168d4f586efe7436dea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"avQchSCb-hY3vlzFtq-uQBDxGRFZJCM-\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__authKey' => '2D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\TokoBaju\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '64128'
+    'SERVER_SOFTWARE' => 'PHP/8.3.31 (Development Server)'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/index.php?r=admin%2Fdashboard%2Findex&tanggal_awal=2026-08-04&tanggal_akhir=2026-10-02'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\TokoBaju\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'QUERY_STRING' => 'r=admin%2Fdashboard%2Findex&tanggal_awal=2026-08-04&tanggal_akhir=2026-10-02'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.138.0 Chrome/148.0.7778.280 Electron/42.10.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/index.php?r=admin%2Fdashboard%2Findex&tanggal_awal=2026-08-04&tanggal_akhir=2026-09-25'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US'
+    'HTTP_COOKIE' => 'PHPSESSID=7aq4tkbuho355sksgl4icnu3mt; _identity=ec0d220f179e1872339df96cb34a8eba05b9f16e0ac387b05574c07902d756d7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%222D0Dvz2G-_MInkA_rYUjhf_cgaQ7GQdh%22%2C2592000%5D%22%3B%7D; _csrf=64abf7792e9de20bb3f439853112149a84b94b1146ab05168d4f586efe7436dea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22avQchSCb-hY3vlzFtq-uQBDxGRFZJCM-%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1790300549.8767
+    'REQUEST_TIME' => 1790300549
+]
